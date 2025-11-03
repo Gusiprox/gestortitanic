@@ -45,12 +45,65 @@ Funcionamiento:
 
 ***UniversalWriter:*** Se ejecuta desde `generarInforme()` para crear el `informe.md` final donde esta escrita la cantidad de personas en cada bote.
 
+### Funcionalidad completa
 
-![Dibujo de los componentes](doc/Arquitectura2.png)
+---
+
+## Servicio de emergencia:
+	- Contiene su lista de botes
+	- Envia botes al mar
+	- Lee los resultados en conjunto
+	- Crea los datos del informe y lo manda a generar
+
+### Envia botes al mar (Por cada bote):
+	- Recibe un numero de bote
+	- Crea el proceso de bote
+	- Devuelve el proceso
+
+#### Crea el proceso de bote
+	- Llama a Ejecuter
+	
+### Lee los resultados en conjunto (lee un solo bote cada vez)
+	- Le pasan un proceso de tipo Ejecuter
+	- Lee el proceso (Si no ha terminado Ejecuter espera a que termine)
+	- Devuelve el resultado del proceso en un string
+
+#### Devuelve el resultado del proceso en un string	
+	- Contiene toda la información del bote en una sola linea separada por espacios con el formato [Numero Bote] [Total] [Mujeres] [Hombres] [Niños]
+	
+### Crea los datos del informe y lo manda a generar
+	- Recibe los datos de los botes (todos)
+	- Crea la lista con los datos de los botes
+	- Genera el informe
+
+---
+
+## Bote:
+	- Asigne un numero de personas repartidos entre hombres, mujeres y niños
+	- Haga el conteo de las personas
+	- Envia cuantas personas hay de cada tipo en el bote y su total al servicio de emergencia
+
+### Asigne un numero de personas repartidos entre hombres, mujeres y niños
+	- Se tiene que asignar un numero no superior a 100 personas maximas en el bote
+
+### Envia cuantas personas hay de cada tipo en el bote y su total al servicio de emergencia
+	- Se envia por la salida estandar los datos de las personas
+		- Manda 4 numeros, con el orden: [Total] [Mujeres] [Hombres] [Niños] separados por espacio en una sola linea
+
+---
+
+## Extras:
+	- Hay que crear una clase que contenga las personas de un bote, esta clase tiene:
+		Total:
+		Mujeres:
+		Hombres:
+	    Niños:
+
+---
 
 ### Protocolo de comunicación
 
-`Bote` enviará la información a través de un `System.out.print` para poder leer la salida estandar del proceso, y lo mandara con un formato ([Numero de Mujeres] [Numero de varones] [Numero de niños] [Total] ) separados con un espacio para su procesamiento en `generarInforme()`
+`Bote` enviará la información a través de un `System.out.print` para poder leer la salida estandar del proceso, y lo mandara con un formato ( [Total] [Numero de Mujeres] [Numero de varones] [Numero de niños] ) separados con un espacio en una sola linea para su procesamiento en `generarInforme()`
 
 ### Plan de pruebas
 
