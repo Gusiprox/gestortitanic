@@ -83,11 +83,11 @@ public class MarkdownWriter implements UniversalWriter{
         }
 
         if (content != null) {
-            fileContent.append(content).append(SALTO_DE_LINEA);
+            fileContent.append(SALTO_DE_LINEA).append(content).append(SALTO_DE_LINEA);
         }
 
         if (finalPart != null) {
-            fileContent.append(finalPart).append(SALTO_DE_LINEA);
+            fileContent.append(SALTO_DE_LINEA).append(finalPart).append(SALTO_DE_LINEA);
         }
 
         if (fileContent.isEmpty()) {
@@ -106,7 +106,7 @@ public class MarkdownWriter implements UniversalWriter{
     @Override
     public void addSectionTitle(String title) {
         
-        content = content + TITLE_SECTION_ANOTATION + title + SALTO_DE_LINEA;
+        content = content + SALTO_DE_LINEA + TITLE_SECTION_ANOTATION + title + SALTO_DE_LINEA + SALTO_DE_LINEA;
     }
 
     @Override

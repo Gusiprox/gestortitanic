@@ -44,9 +44,12 @@ public class ServicioEmergencias {
         
 
         for (int i = 1; i < NUMERO_BOTES +1; i++) {
+
+            final int LAST_UNIQUE_NUMBER = 9;
+
             StringBuilder bote = new StringBuilder();
             bote.append(LETRA_BOTE);
-            if (i <= 9) bote.append(RELLENO);
+            if (i <= LAST_UNIQUE_NUMBER) bote.append(RELLENO);
 
             bote.append(i);
 

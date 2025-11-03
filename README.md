@@ -2,6 +2,20 @@
 
 ***Miembros del grupo:*** Aitor Rebato, Erik De La Cruz
 
+## Índice
+
+* [Analisis del problema](#analisis-del-problema)
+* [Diseño de la solución](#diseño-de-la-solución)
+  * [Arquitectura](#arquitectura)
+  * [Componentes](#componentes)
+  * [Protocolo de comunicación](#protocolo-de-comunicación)
+  * [Plan de pruebas](#plan-de-pruebas)
+* [Manual de usuario](#manual-de-usuario)
+* [Elementos destacables del desarrollo](#elementos-destacables-del-desarrollo)
+* [Problemas encontrados](#problemas-encontrados)
+* [Conclusiones Individuales](#conclusiones-individuales)
+* [Anexos](#anexos)
+
 ## Analisis del problema
 
 Se pide implementar un programa que genere un documento sobre la cantidad de personas en cada bote.
@@ -131,9 +145,32 @@ Si se quieren cambiar la cantidad maxima de botes lanzados, ir a `ServicioEmerge
 
 ## Elementos destacables del desarrollo
 
-A la hora de recibir los datos de los botes se ha conseguido que el tiempo de espera sea el minimo.
+A la hora de recibir los datos de los botes se ha conseguido que el tiempo de espera sea el minimo siendo 6 segundos en el peor de los casos.
+
+Universal writer funciona sin fallos.
 
 ---
 
 ## Problemas encontrados
 
+En la parte de `ServicioEmergencias.java` falta implementar una función para no repetir codigo que no estaba contemplada en el diseño, habria que implementarla.
+
+A la hora de probar el programa Botes.java para su funcionamiento, un problema que se nos presentó fue que para pasar los datos se usó System.out.println en lugar de System.out.print por lo que generaba un salto de linea no deseado impidiendo el correcto funcionamiento del programa.
+
+## Conclusiones individuales
+
+### Aitor
+
+Esta práctica me ha hecho aprender de la importancia de la herramienta Github para compartir el proyecto con mi compañero
+y para gestionar el control de ramas y versiones de nuestro proyecto
+
+### Erik
+
+En esta practica he aprendido mucho sobre el diseño y lo importante que es a la hora de hacer proyectos, sobre todo los grupales, ya que si falla algo en el diseño falla a la hora de codificar y eso genera muchos problemas, aun asi aun el diseño aun no esta pulido, hay que reforzar
+
+## Anexos
+
+<https://docs.oracle.com/javase/8/docs/api/>
+<https://www.w3schools.com/java/>
+
+Repositorio github: <https://github.com/Gusiprox/gestortitanic.git>

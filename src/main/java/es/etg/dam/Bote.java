@@ -12,12 +12,25 @@ public class Bote {
     private static Random random;
     private static PersonasBote personasBote;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         id = args[ID];
         random = new Random();
         generarPersonas();
         personasBote = new PersonasBote(id, mujeres, hombres, ninos);
+
+        Thread.sleep(getTiempoEspera());
+
         System.out.print(personasBote.getData());
+    }
+
+    private static int getTiempoEspera(){
+
+        final int TIEMPO_ESPERA_MIN = 2000;
+        final int TIEMPO_ESPERA_MAX = 6000;
+
+        int tiempoEspera = random.nextInt(TIEMPO_ESPERA_MAX - TIEMPO_ESPERA_MIN + 1) + TIEMPO_ESPERA_MIN;
+
+        return tiempoEspera;
     }
 
     private static void generarPersonas() {

@@ -31,7 +31,7 @@ public class Command implements Ejecuter {
     public String[] readOut(){
 
         final String ERROR_VALUE = "";
-        final Exception FAILED_PROCESS = new Exception("El proceso falló, pruebe a instalar imagemagick: sudo apt install imagemagick");
+        final Exception FAILED_PROCESS = new Exception("Comando no encontrado ");
         final String SUSCES_PROCESS = "Proceso ejecutado correctamente";
 
 
