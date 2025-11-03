@@ -25,6 +25,4 @@ public class EjecuterTest {
 
     }
 
-    //Falta un test para lanzar los botes y que regrese los datos bien
-
 }
