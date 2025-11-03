@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="gestor-del-titanic">Gestor del Titanic</h1>
+<p><em><strong>Miembros del grupo:</strong></em> Aitor Rebato, Erik De La Cruz</p>
+<h2 id="%C3%ADndice">Índice</h2>
+<ul>
+<li><a href="#analisis-del-problema">Análisis del problema</a></li>
+<li><a href="#dise%C3%B1o-de-la-soluci%C3%B3n">Diseño de la solución</a>
+<ul>
+<li><a href="#arquitectura">Arquitectura</a></li>
+<li><a href="#componentes">Componentes</a></li>
+<li><a href="#protocolo-de-comunicaci%C3%B3n">Protocolo de comunicación</a></li>
+<li><a href="#plan-de-pruebas">Plan de pruebas</a></li>
+</ul>
+</li>
+<li><a href="#manual-de-usuario">Manual de usuario</a></li>
+<li><a href="#elementos-destacables-del-desarrollo">Elementos destacables del desarrollo</a></li>
+<li><a href="#problemas-encontrados">Problemas encontrados</a></li>
+<li><a href="#conclusiones-individuales">Conclusiones Individuales</a></li>
+<li><a href="#anexos">Anexos</a></li>
+</ul>
+<h2 id="analisis-del-problema">Analisis del problema</h2>
+<p>Se pide implementar un programa que genere un documento sobre la cantidad de personas en cada bote.</p>
+<p>Cada bote tiene una cantidad de personas que debe ser anotado de manera individual, dividido entre mujeres, varones, niños y el total.</p>
+<p>Hay 20 botes en total, cada uno con un identificador distindo.</p>
+<p>No se tendrá en cuenta si la cantidad de personas en los botes coinciden con las que estaban a bordo en el barco.</p>
+<p>Los botes tardan de 2 a 6 segundos en contar las personas que contienen.</p>
+<p>El programa tendrá que ver las personas que hay en cada bote y generar el informe con los datos de cada uno de ellos.</p>
+<hr>
+<h2 id="dise%C3%B1o-de-la-soluci%C3%B3n">Diseño de la solución</h2>
+<h3 id="arquitectura">Arquitectura</h3>
+<p>Explicación: Necesitamos un programa principal que gestione los botes, los lance, reciba la información y escriba el informe, los botes son gestionados de manera individual y tienen que recibir el número de bote que les corresponda.</p>
+<p>Funcionamiento:</p>
+<ul>
+<li>Iniciamos el programa.</li>
+<li>Servicio de emergencias genera 20 botes.</li>
+<li>Como los botes tardan de 2 a 6 segundos en ejecutarse, el programa deberá funcionar de manera <em>asincrona</em> y <em>bloqueante</em>, de esta manera cuando estén todos los botes en el mar comenzará a leerlos.
+<blockquote>
+<p>El tiempo de espera será el tiempo del bote que mas tardó en ejecutarse.</p>
+</blockquote>
+</li>
+<li>Los botes devuelven la cantidad de personas que contienen.</li>
+<li>Con los datos de los botes se generará el informe final.</li>
+</ul>
+<p><img src="Arquitectura1.png" alt="Dibujo de la arquitectura"></p>
+<h3 id="componentes">Componentes</h3>
+<p><em><strong>Servicio de emergencia:</strong></em> Recibe internamente la lista de los botes para tenerla en un array y los lleva al metodo <code>enviarBote()</code>, cuando todos los botes están enviados hace la función <code>leerBote()</code> para obtener un listado de las personas de todos los botes, finalmente manda esta información a <code>generarInforme()</code> para generar el informe.</p>
+<p><em><strong>Ejecuter:</strong></em> Es una interfaz que recibe un comando de <code>enviarBote</code> y lo ejecuta de manera asíncrona, en este caso lanza bote y recibe su información para enviarla a <code>leerBote()</code>.</p>
+<p><em><strong>Bote:</strong></em> Es ejecutado la cantidad de botes que tenga el barco, tiene una función que le asigna un numero de personas sin pasarse de la cantidad maxima en este caso 100 <code>asignarNumeroPersona()</code> , y devuelve el numero de personas que hay.</p>
+<p><em><strong>PersonasBote:</strong></em> Envía los datos desde Bote al Servicio de emergencias para una lectura más fácil.</p>
+<p><em><strong>UniversalWriter:</strong></em> Se ejecuta desde <code>generarInforme()</code> para crear el <code>informe.md</code> final donde esta escrita la cantidad de personas en cada bote.</p>
+<h3 id="funcionalidad-completa">Funcionalidad completa</h3>
+<hr>
+<h2 id="servicio-de-emergencia">Servicio de emergencia:</h2>
+<pre><code>- Contiene su lista de botes
+- Envia botes al mar
+- Lee los resultados en conjunto
+- Crea los datos del informe y lo genera
+</code></pre>
+<h3 id="envia-botes-al-mar-por-cada-bote">Envia botes al mar (Por cada bote):</h3>
+<pre><code>- Recibe un numero de bote
+- Crea el proceso de bote
+- Devuelve el proceso
+</code></pre>
+<h4 id="crea-el-proceso-de-bote">Crea el proceso de bote</h4>
+<pre><code>- Llama a Ejecuter
+</code></pre>
+<h3 id="lee-los-resultados-en-conjunto-lee-un-solo-bote-cada-vez">Lee los resultados en conjunto (lee un solo bote cada vez)</h3>
+<pre><code>- Le pasan un proceso de tipo Ejecuter
+- Lee el proceso (Si no ha terminado Ejecuter espera a que termine)
+- Devuelve el resultado del proceso en un string
+</code></pre>
+<h4 id="devuelve-el-resultado-del-proceso-en-un-string">Devuelve el resultado del proceso en un string</h4>
+<pre><code>- Contiene toda la información del bote en una sola linea separada por espacios con el formato [Numero Bote] [Total] [Mujeres] [Hombres] [Niños]
+</code></pre>
+<h3 id="crea-los-datos-del-informe-y-lo-manda-a-generar">Crea los datos del informe y lo manda a generar</h3>
+<pre><code>- Recibe los datos de todos los botes
+- Crea la lista con los datos de los botes
+- Genera el informe
+</code></pre>
+<hr>
+<h2 id="bote">Bote:</h2>
+<pre><code>- Asigna un número de personas repartidos entre hombres, mujeres y niños
+- Hace el conteo de todas las personas
+- Envía cuantas personas tiene de cada tipo en el bote y su total al servicio de emergencia
+</code></pre>
+<h3 id="asigna-un-n%C3%BAmero-de-personas-repartidos-entre-hombres-mujeres-y-ni%C3%B1os">Asigna un número de personas repartidos entre hombres, mujeres y niños</h3>
+<pre><code>- Se tiene que asignar un número no superior a 100 personas máximas en el bote
+</code></pre>
+<h3 id="env%C3%ADa-cuantas-personas-tiene-de-cada-tipo-en-el-bote-y-su-total-al-servicio-de-emergencia">Envía cuantas personas tiene de cada tipo en el bote y su total al servicio de emergencia</h3>
+<pre><code>- Se envía por la salida estandar los datos de las personas
+	- Manda 5 parámetros, con el orden: [ID] [Total] [Mujeres] [Hombres] [Niños] separados por espacio en una sola linea
+</code></pre>
+<hr>
+<h2 id="extras">Extras:</h2>
+<pre><code>- PersonasBote recibe desde Bote un String con los datos de las personas que contienen
+- PersonasBote es llamado por ServicioEmergencias para que le indique que valor le corresponde a cada número del String enviado por Botes
+</code></pre>
+<hr>
+<h3 id="protocolo-de-comunicaci%C3%B3n">Protocolo de comunicación</h3>
+<p><code>Bote</code> enviará la información a través de un <code>System.out.print</code> para poder leer la salida estandar del proceso, y lo mandara con un formato ([ID] [Total] [Número de Mujeres] [Número de varones] [Número de niños]) separados con un espacio en una sola linea para su procesamiento en <code>generarInforme()</code>.</p>
+<p><code>PersonasBote</code> es una clase de apoyo para tener los datos agrupados que acepta el String que sale de <code>Bote</code>.</p>
+<h3 id="plan-de-pruebas">Plan de pruebas</h3>
+<p>Usaremos <strong>JUNIT</strong> para esta parte y probaremos:</p>
+<p><strong>Bote:</strong> Se ejecutará varias veces y no deberá traer un valor total de personas mayor a 100, se probarán los datos de entrada y que saque el conteo de personas bien.</p>
+<p><strong>PersonasBote:</strong> Se probará que funciona bien los distintos métodos de pasar los datos.</p>
+<p><strong>Ejecuter:</strong> le mandaremos un programa que ejecute y probar que <code>getSalida()</code> lea bien.</p>
+<p><strong>UniversalWriter:</strong> Le pondremos a generar un informe y verlo que salga bien.</p>
+<p><strong>ServicioDeEmergencias:</strong> Se comprobarán los datos de los botes que reciba para comprobar que genera el informe final correctamente.</p>
+<hr>
+<h2 id="manual-de-usuario">Manual de usuario</h2>
+<p>Para ejecutar el programa se debe lanzar <code>ServicioEmergencias.java</code>, y esperar a que en /informe salga el <code>informe.md</code>.</p>
+<p>Si se quiere cambiar la cantidad maxima de personas en cada bote puede meterse en <code>Botes.java</code> y cambiar el valor del atributo PERSONAS_MAXIMAS.</p>
+<p>Si se desea modificar la cantidad maxima de botes lanzados, se tiene que ir a <code>ServicioEmergencias.java</code> y cambiar el valor del atributo NUMERO_BOTES (El valor de botes no puede superar 99).</p>
+<hr>
+<h2 id="elementos-destacables-del-desarrollo">Elementos destacables del desarrollo</h2>
+<p>A la hora de recibir los datos de los botes se ha conseguido que el tiempo de espera mínimo sería 6 segundos en el peor de los casos.</p>
+<hr>
+<h2 id="problemas-encontrados">Problemas encontrados</h2>
+<p>En la parte de <code>ServicioEmergencias.java</code> falta implementar una función para evitar repetir código que no estaba contemplada en el diseño, habría que implementarla.</p>
+<p>A la hora de probar el programa Botes.java para su funcionamiento, un problema que se nos presentó fue que para pasar los datos se usó System.out.println en lugar de System.out.print, lo que generaba un salto de linea no deseado impidiendo el correcto funcionamiento del programa.</p>
+<h2 id="conclusiones-individuales">Conclusiones individuales</h2>
+<h3 id="aitor">Aitor</h3>
+<p>Esta práctica me ha hecho aprender de la importancia de la herramienta Github para compartir el proyecto con mi compañero y gestionar el control de ramas y versiones de nuestro proyecto, pudiendo realizarlo cómodamente</p>
+<h3 id="erik">Erik</h3>
+<p>En esta practica he aprendido mucho sobre el diseño y lo importante que es a la hora de hacer proyectos, sobre todo los grupales, ya que si falla algo en el diseño falla a la hora de codificar y eso genera muchos problemas, aun así el diseño aun no esta pulido, hay que reforzarlo.</p>
+<h2 id="anexos">Anexos</h2>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/">https://docs.oracle.com/javase/8/docs/api/</a></p>
+<p><a href="https://www.w3schools.com/java/">https://www.w3schools.com/java/</a></p>
+<p>Repositorio github: <a href="https://github.com/Gusiprox/gestortitanic.git">https://github.com/Gusiprox/gestortitanic.git</a></p>
+
+</body>
+</html>
