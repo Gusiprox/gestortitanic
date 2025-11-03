@@ -3,28 +3,24 @@ package es.etg.dam;
 import java.util.Random;
 
 import es.etg.dam.datos.PersonasBote;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class Bote {
 
-    private static final int PERSONAS_MAXIMAS = 100;
-    private String id;
-    private int mujeres, hombres, ninos, total;
-    private Random random;
-    private PersonasBote personasBote;
+    private static final int PERSONAS_MAXIMAS = 100, ID = 0;
+    private static String id;
+    private static int mujeres, hombres, ninos;
+    private static Random random;
+    private static PersonasBote personasBote;
 
-    public Bote(String id, PersonasBote personasBote) {
-        this.id = id;
-        this.personasBote = personasBote;
-        this.random = new Random();
+    public static void main(String[] args) {
+        id = args[ID];
+        random = new Random();
         generarPersonas();
-        enviarDatos();
+        personasBote = new PersonasBote(id, mujeres, hombres, ninos);
+        System.out.println(personasBote.getData());
     }
 
-    private void generarPersonas() {
+    private static void generarPersonas() {
         int personasRestantes = PERSONAS_MAXIMAS;
 
         mujeres = generarNumeroAleatorio(personasRestantes);
@@ -34,15 +30,9 @@ public class Bote {
         personasRestantes = personasRestantes - hombres;
 
         ninos = generarNumeroAleatorio(personasRestantes);
-
-        total = mujeres + hombres + ninos;
     }
 
-    private void enviarDatos() {
-        personasBote.leerDatos(id, total, mujeres, hombres, ninos);
-    }
-
-    private int generarNumeroAleatorio(int maximo) {
+    private static int generarNumeroAleatorio(int maximo) {
         if (maximo <= 0) {
             return 0;
         }
