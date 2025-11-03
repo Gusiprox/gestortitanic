@@ -7,6 +7,9 @@ import java.io.FileWriter;
 public class MarkdownWriter implements UniversalWriter{
 
     private final static String TITLE_ANOTATION = "# ";
+    private final static String TITLE_SECTION_ANOTATION = "## ";
+    private final static String LIST_ELEMENT_ANOTATION = "- ";
+    private final static String LIST_SUBELEMENT_ANOTATION = "\t- ";
     private final static String BLOCKQUOTE_ANOTATION = "> ";
     private final static String MD_EXTENSION = ".md";
     private final static String FOLDER_SEPARATOR = "/";
@@ -14,10 +17,9 @@ public class MarkdownWriter implements UniversalWriter{
 
 
     private String title;
-    private String content;
+    private String content = "";
     private String finalPart;
     private String fileFolder = "files/";
-
 
 
     @Override
@@ -57,7 +59,6 @@ public class MarkdownWriter implements UniversalWriter{
 
         //Me pueden devolver valores raros en el String, solucionarlo a la proxima
         File file = new File(filePath.toString());
-        System.out.println(file.getAbsolutePath());
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file.getAbsolutePath()))){
 
@@ -65,7 +66,7 @@ public class MarkdownWriter implements UniversalWriter{
             return SUSCES_VALUE;
 
         } catch (Exception e) {
-            //System.err.println("e");
+
             return ERROR_VALUE;
         }
 
@@ -94,6 +95,30 @@ public class MarkdownWriter implements UniversalWriter{
         }
 
         return fileContent.toString();
+
+    }
+
+    @Override
+    public void addContent(String content) {
+        this.content = this.content + content.trim() + SALTO_DE_LINEA;
+    }
+
+    @Override
+    public void addSectionTitle(String title) {
+        
+        content = content + TITLE_SECTION_ANOTATION + title + SALTO_DE_LINEA;
+    }
+
+    @Override
+    public void addListElement(String listFirst) {
+        
+        content = content + LIST_ELEMENT_ANOTATION + listFirst.trim() + SALTO_DE_LINEA;
+    }
+
+    @Override
+    public void addListSubElement1(String listFirst) {
+        
+        content = content + LIST_SUBELEMENT_ANOTATION + listFirst.trim() + SALTO_DE_LINEA;
 
     }
 }
