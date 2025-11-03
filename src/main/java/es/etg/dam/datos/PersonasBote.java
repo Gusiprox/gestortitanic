@@ -40,6 +40,6 @@ public class PersonasBote {
                 .append(hombres).append(ESPACIO)
                 .append(ninos);
 
-        return lector.toString();
+        return lector.toString().trim();
     }
 }
