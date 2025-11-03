@@ -28,7 +28,7 @@ public class PersonasBote {
         total = Integer.parseInt(listaDatos[TOTAL]);
         mujeres = Integer.parseInt(listaDatos[MUJERES]);
         hombres = Integer.parseInt(listaDatos[HOMBRES]);
-        ninos = Integer.parseInt(listaDatos[NINOS]);
+        ninos = Integer.parseInt(listaDatos[NINOS].trim());
     }
 
     public String getData() {
