@@ -46,10 +46,11 @@ public class Bote {
         ninos = generarNumeroAleatorio(personasRestantes);
     }
 
-    private static int generarNumeroAleatorio(int maximo) {
-        if (maximo <= 0) {
-            return 0;
+    private static int generarNumeroAleatorio(int personasRestantes) {
+        final int LIMITE = 0, MAXIMOINCLUIDO = 1;
+        if (personasRestantes <= LIMITE) {
+            return LIMITE;
         }
-        return random.nextInt(maximo + 1);
+        return random.nextInt(personasRestantes + MAXIMOINCLUIDO);
     }
 }
